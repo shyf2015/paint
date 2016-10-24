@@ -1,0 +1,49 @@
+.container{
+	margin: 10px auto;
+	width: 800px;
+	height: 500px;
+	border: 5px solid #579;
+}
+.tools{
+	width: 100%;
+	height: 50px;
+	border-bottom: 3px solid #579;
+}
+.tools b{
+	display: block;
+	line-height: 50px;
+	margin-left: 10px; 
+	float: left;
+}
+.tools span{
+	display: block;
+	float: left;
+	margin-left: 8px;
+	margin-top: 20px;
+	width: 50px;
+	height: 1px;
+	background-color: #000;
+	cursor: pointer;
+	border: 2px solid #fff;
+}
+.tools .px2{
+	height: 2px;
+}
+.tools .px3{
+	height: 3px;
+}
+.tools .px4{
+	height: 4px;
+}
+.tools .px5{
+	height: 5px;
+}
+.tools #color{
+	display: block;
+	float: left;
+	margin: 10px;
+}
+#canvas{
+	width: 100%;
+	height: 450px;
+}
