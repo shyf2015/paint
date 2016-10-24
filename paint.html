@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>画板</title>
+	<link rel="stylesheet" type="text/css" href="paint.css">
+</head>
+<body>
+	<h1 align="center">画图板</h1>
+	<div class="container">
+		<div class="tools">
+			<b class="px">粗细</b>
+			<span class="px1 px0"></span>
+			<span class="px2 px0"></span>
+			<span class="px3 px0"></span>
+			<span class="px4 px0"></span>
+			<span class="px5 px0"></span>
+			<b class="color">颜色</b>
+			<input type="color" id="color" value="#000000">
+		</div>
+		<canvas id="canvas"></canvas>
+	</div>
+<script src="jquery.js"></script>
+<script type="text/javascript">
+(function(){
+	var flag = 0;
+	var x1,y1,x2,y2;
+	var content = $("#canvas")[0].getContext("2d");
+	content.lineWidth = 1*0.5;
+	$('#canvas').on('mousedown',function(e){
+		flag = 1;
+		x1 = e.offsetX*(300/800);
+		y1 = e.offsetY*(150/450);
+			console.log(x1,y1);
+	})
+	$('#canvas').on('mousemove',function(e){
+		if(flag==1){
+			x2 = e.offsetX*(300/800);
+			y2 = e.offsetY*(150/450);
+			content.beginPath();
+			content.moveTo(x1,y1);
+			content.lineTo(x2,y2);			
+			content.stroke();
+			content.closePath();
+			x1 = x2;
+			y1 = y2;
+		}
+	})
+	$(window).on('mouseup',function(){
+		flag = 0;
+	})
+	$('#color').on('change',function(){
+		var color = $('#color').val();
+		content.strokeStyle = color;
+	})
+	$('.px0').on('click',function(){
+		var index = $(this).index();
+		content.lineWidth = index*0.5;
+	})
+})();
+</script>
+</body>
+</html>
